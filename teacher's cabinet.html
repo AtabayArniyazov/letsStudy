@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>LETSSTUDY кабинет учителя</title>
+
+	<script type="text/javascript" src="js/jquery-3.2.0.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Подключение CSS-файла offcanvas -->
+	<link rel="stylesheet" href="css/bootstrap.offcanvas.min.css">
+	
+	<!-- Подключение JavaScript-файла offcanvas -->
+	<script src="js/bootstrap.offcanvas.min.js"></script>  
+
+    <link rel="stylesheet" type="text/css" href="css/teacher's cabinet.css">
+</head>
+<body>
+	<header>
+			<nav class="navbar navbar-default navbar-fixed-top navbarStyle" role="navigation">
+			  <div class="container-fluid padding15px">
+			    <div class="navbar-header">
+			      <a class="navbar-brand" href="#"><img src="images/logo/Лготип.png" alt="logo" id="logo"></a>
+			      <div class="navbar-header navbar-brand currentTime">
+			    		<u class="colorGreen"><span id="currentTime" class="colorGreen"></span></u>
+			      </div>
+			      <button type="button" class="navbar-toggle offcanvas-toggle pull-right" data-toggle="offcanvas" data-target="#js-bootstrap-offcanvas" style="float:left;">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span>
+			          <span class="icon-bar"></span>
+			          <span class="icon-bar"></span>
+			          <span class="icon-bar"></span>
+			        </span>
+			      </button>
+			    </div>
+			    <div class="navbar-offcanvas navbar-offcanvas-touch" id="js-bootstrap-offcanvas">
+			      <ul class="nav navbar-nav navbar-right">
+			        <li><a href="#"><img src="images/icons/myMaterials.png""> <span class="colorWhite fontSize24px">Мои материалы</span></a></li>
+			        <li><a href="#"><img src="images/icons/myStudents.png"> <span class="colorWhite fontSize24px">Мои студенты</span></a></li>
+			        <li><a href="#"><img src="images/icons/myCollegs.png"> <span class="colorWhite fontSize24px">Коллеги</span></a></li>
+			        <li><a href="#"><img src="images/icons/calendar4.png"></a></li>
+			        <li><a href="#"><img src="images/icons/message1.png" onclick="message1()"></a></li>
+			        <li><a href="#"><img src="images/icons/notice1.png" onclick="notice1()"></a></li>
+			        <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="images/icons/accaunt1.png"></a>
+			          <ul class="dropdown-menu bgColorGrey" role="menu">
+			            <li><a href="#"><span class="colorWhite fontSize24px">Личные данные</span></a></li>
+			            <li><a href="#"><span class="colorWhite fontSize24px">Резюме</span></a></li>
+			            <li><a href="#"><span class="colorWhite fontSize24px">Помощь</span></a></li>
+			            <li><a href="#"><span class="colorWhite fontSize24px">Выход</span></a></li>
+			          </ul>
+			        </li>
+			      </ul>
+			    </div>
+			  </div>
+			</nav>
+	</header>
+
+	<section>
+		<div id="content"></div>
+	</section>
+
+<!-- NOTICE CONTENT -->
+	<div id="notice1">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<span class="h3 colorGrey">Оповещения</span>
+				</div>
+				<!-- 1 notice -->
+				<div class="col-xs-12 col-md-12 paddingTop15px">
+					<div class="col-xs-2 col-md-1 text-center">
+						<img src="images/icons/label.png">
+					</div>
+					<div class="col-xs-10 col-md-11">
+						<div class="row">
+							<div class="col-xs-12 col-md-12">
+								<p class="fontSize14px text-justify">Не следует, однако забывать, что консультация с широким активом представляет собой интересный эксперимент проверки дальнейших направлений развития. Товарищи! консультация с широким активом обеспечивает широкому кругу...</p>
+							</div>
+							<div class="col-xs-12 col-md-12">
+								<p class="noticeDateColor">12 июля</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 2 notice -->
+				<div class="col-xs-12 col-md-12 paddingTop15px">
+					<div class="col-xs-2 col-md-1 text-center">
+						<img src="images/icons/label.png">
+					</div>
+					<div class="col-xs-10 col-md-11">
+						<div class="row">
+							<div class="col-xs-12 col-md-12">
+								<p class="fontSize14px text-justify">Повседневная практика показывает, что рамки и место обучения кадров позволяет оценить значение существенных финансовых и административных условий. Значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечение нашей деятельности обеспечивает широкому кругу (специалистов) участие в формировании системы обучения кадров, соответствует насущным потребностям. Задача организации, в особенности же новая модель организационной деятельности играет важную роль в формировании новых предложений. Повседневная практика показывает, что рамки и место обучения кадров в значительной степени обуславливает создание дальнейших направлений развития. Не следует, однако забывать, что сложившаяся структура организации требуют определения и уточнения модели развития. Равным образом дальнейшее развитие различных форм деятельности требуют определения и уточнения направлений прогрессивного развития.</p>
+							</div>
+							<div class="col-xs-12 col-md-12">
+								<p class="noticeDateColor">9 июля</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 3 notice -->
+				<div class="col-xs-12 col-md-12 paddingTop15px">
+					<div class="col-xs-2 col-md-1 text-center">
+						<img src="images/icons/label.png">
+					</div>
+					<div class="col-xs-10 col-md-11">
+						<div class="row">
+							<div class="col-xs-12 col-md-12">
+								<p class="fontSize14px text-justify">Не следует, однако забывать, что консультация с широким активом представляет собой интересный эксперимент проверки дальнейших направлений развития. Товарищи! консультация с широким активом обеспечивает широкому кругу...</p>
+							</div>
+							<div class="col-xs-12 col-md-12">
+								<p class="noticeDateColor">1 июля</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 4 notice -->
+				<div class="col-xs-12 col-md-12 paddingTop15px">
+					<div class="col-xs-2 col-md-1 text-center">
+						<img src="images/icons/label.png">
+					</div>
+					<div class="col-xs-10 col-md-11">
+						<div class="row">
+							<div class="col-xs-12 col-md-12">
+								<p class="fontSize14px text-justify">Не следует, однако забывать, что консультация с широким активом представляет собой интересный эксперимент проверки дальнейших направлений развития. Товарищи! консультация с широким активом обеспечивает широкому.</p>
+							</div>
+							<div class="col-xs-12 col-md-12">
+								<p class="noticeDateColor">22 июня</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- MESSAGE CONTENT -->
+	<div id="message1">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-12">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="row">
+								<div class="col-md-12">
+									<div id="custom-search-input">
+						                <div class="input-group">
+						                    <input type="text" class="form-control input-lg" placeholder="Поиск по имени..." />
+						                    <span class="input-group-btn">
+						                        <button class="btn btn-info btn-lg" type="button">
+						                            <i class="glyphicon glyphicon-search"></i>
+						                        </button>
+						                    </span>
+						                </div>
+						            </div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<div class="row">
+								<div class="col-md-12">
+									<p class="h4 text-center">Игорь Трамп</p>
+								</div>
+								<div class="col-md-12">
+									<p class="text-justify">Таким образом реализация намеченных плановых заданий требуют определения и уточнения форм развития. Не следует, однако забывать, что новая модель организационной деятельности в значительной степени обуславливает создание модели развития. Не следует, однако забывать, что новая модель</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-12"></div>
+
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/teacher's cabinet.js"></script>
+</body>
+</html>

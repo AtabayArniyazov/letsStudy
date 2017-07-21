@@ -1,0 +1,67 @@
+header {
+	font-family: Arial;
+}
+
+.navbarStyle {
+	background-color: #666666;
+	background-image: none;
+}
+
+.padding15px {
+	padding: 15px;
+}
+
+.paddingTop15px {
+	padding-top: 15px;
+}
+
+#logo {
+	height: 50px;
+}
+
+.currentTime {
+	width: 65px;
+	font-size: 20px;
+	padding-right: 0;
+	margin-top: 15px;
+}
+
+.colorGreen {
+	color: #0CFF2E;
+}
+
+.bgColorGrey {
+	background-color: #666666;
+}
+
+.navbar-default .navbar-offcanvas {
+	background-color: #666666;
+}
+
+.fontSize24px {
+	font-size: 24px;
+}
+
+.colorWhite {
+	color: #FFFFFF;
+}
+
+#notice1, #message1 {
+	display: none;
+}
+
+.colorGrey {
+	color: #666666;
+}
+
+.fontSize14px {
+	font-size: 14px;
+}
+
+.noticeDateColor {
+	color: #A3A3A3;
+}
+
+#content {
+	margin-top: 130px;
+}
