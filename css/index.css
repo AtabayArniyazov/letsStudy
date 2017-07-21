@@ -1,0 +1,127 @@
+header div {
+	background-color: #698CC8;
+}
+
+.headerP {
+	font-size: 30px;
+	color: #FFFFFF;
+	font-family: MyraidPro;
+	font-weight: 900;
+}
+
+.marginBottom15px {
+	margin-bottom: 15px;
+}
+
+#section1 {
+	font-size: 18px;
+	font-family: Roboto;
+}
+
+.teacherName {
+	font-size: 30px;
+}
+
+.padding0 {
+	padding: 0;
+}
+
+.grey {
+	color: #A2A2A2;
+}
+
+.fontSize16px {
+	font-size: 16px;
+}
+
+.styleForTags {
+	color: #FFFFFF;
+	background-color: #A2A2A2;
+}
+
+.fontSize18px {
+	font-size: 18px;
+}
+
+.btnBlack {
+	background-color: #000000;
+	background-image: none;
+	color: #FFFFFF;
+}
+
+.btnBlack:hover {
+	background-image: none;
+	background-color: #000000;
+	color: red;
+}
+
+.bgStyleGrey {
+	background-color: #9A9A9A;
+	width: 350px;
+	height: 220px;
+	margin: 0px 10px 0px 10px;
+}
+
+.styleForPfoto {
+	font-size: 30px;
+	color: #7C7C7C;
+	line-height: 220px;
+}
+
+#section2 .container {
+	background-color: #698CC8;
+}
+
+.bgStyleWhite {
+	background-color: #FFFFFF;
+	margin: 0px 10px 15px 10px;
+	padding: 10px;
+}
+
+.bgStyleWhite2 {
+	width: 350px;
+	background-color: #FFFFFF;
+	margin: 0px 10px 0px 10px;
+	padding: 10px;
+}
+
+.fontSize24px {
+	font-size: 24px;
+}
+
+.paddingLeft20px {
+	padding-left: 20px;
+}
+
+.paddingRight20px {
+	padding-right: 20px;
+}
+
+.paddingLeft30px {
+	padding-left: 30px;
+}
+
+.fontSize30px {
+	font-size: 30px;
+}
+
+.fontColorForSection3 {
+	color: #724A4A;
+}
+
+.marginRight20px {
+	margin-right: 20px;
+}
+
+.fade {
+	background:rgba(51,51,51, 0.7);
+}
+
+.modalHeaderStyle {
+	border: none;
+	padding: 10px 50px 20px 50px;
+}
+
+.modalBodyStyle {
+	padding: 0px 50px 20px 50px;
+}
