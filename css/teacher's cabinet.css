@@ -46,7 +46,7 @@ header {
 	color: #FFFFFF;
 }
 
-#notice1, #message1 {
+#myNoticeContent, #myMessageContent, #myCollegsContent, #myStudentsContent {
 	display: none;
 }
 
@@ -64,4 +64,112 @@ header {
 
 #content {
 	margin-top: 130px;
+}
+
+.paddingLeft0 {
+	padding-left: 0;
+}
+
+.paddingRight0 {
+	padding-right: 0;
+}
+
+div#myMessageFriendsName.col-md-4>div.col-md-12:hover {
+	background-color: #E5E5E5;
+	cursor: pointer;
+}
+
+div#myMessageFriendsName.col-md-4>div.col-md-12 {
+	border: 1px solid #666666;
+	padding-top: 5px;
+}
+
+#myFriendsMessageContent {
+	border: 1px solid #666666;
+}
+
+.styleForDateInMessage {
+	color: #9E9E9E;
+	font-size: 14px;
+}
+
+.styleForNewMessage {
+	background-color: #E5E5E5;
+}
+
+.bgColorStudents {
+	background-color: #E1E1E1;
+}
+
+.imgWidthStudent {  
+	width: 150px;
+}
+
+.imgWidthSkype {  
+	width: 40px;
+}
+
+.styleLangLevel {
+	width: 150px;
+	height: 70px;
+	line-height: 70px;
+	background-color: #FFFFFF;
+	font-size: 20px;
+	color: #666666;
+}
+
+.paddingLeft40px {
+	padding-left: 40px;
+}
+
+.bgColorWhite {
+	background-color: #FFFFFF;
+}
+
+.paddingBottom18px {
+	padding-bottom: 18px;
+}
+
+.paddingTop18px {
+	padding-top: 18px;
+}
+
+.padding0 {
+	padding: 0;
+}
+
+.margin15px {
+	margin: 15px;
+}
+
+.bgColorForTimeZone {
+	background-color: #666666;
+}
+
+.colorStudentsText {
+	color: #666666;
+}
+
+.height40px {
+	height: 40px
+}
+
+.fontSize30px {
+	font-size: 30px;
+}
+
+.fontSize12px {
+	font-size: 12px;
+}
+
+.height34px {
+	height: 34px;
+}
+
+.lineHeight34px {
+	line-height: 34px;
+}
+
+.border15pxWhite {
+	border: 15px solid #FFFFFF;
 }
