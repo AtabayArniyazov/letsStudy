@@ -135,6 +135,7 @@ function nextWeek() {
 
         document.getElementById("dateForCalendar").innerHTML = result1Date;
         document.getElementById("dateForCalendar2").innerHTML = result2Date;
+        nextDatesOfThedaysOfTheWeek();
 }
 
 function previousWeek() {
@@ -171,6 +172,7 @@ function previousWeek() {
 
         document.getElementById("dateForCalendar").innerHTML = result1Date;
         document.getElementById("dateForCalendar2").innerHTML = result2Date;
+        previousDatesOfThedaysOfTheWeek();
 }
 
 function datesOfThedaysOfTheWeek() {
@@ -206,35 +208,108 @@ function datesOfThedaysOfTheWeek() {
         document.getElementById("sunday").innerHTML = result[6];
 }
 
-// function datesOfThedaysOfTheWeek() {
-//     var months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"],
-//         lastDate = document.getElementById("dateForCalendar").innerHTML.split(" "),
-//         day = Number(lastDate[0]),
-//         month,
-//         year = Number(lastDate[2]),
-//         new1Date, result1Date, result2Date;
+function nextDatesOfThedaysOfTheWeek() {
+    var arrWithDatesOfThedaysOfTheWeek = [
+            document.getElementById("monday").innerHTML.split("/"),
+            document.getElementById("tuesday").innerHTML.split("/"),
+            document.getElementById("wednesday").innerHTML.split("/"),
+            document.getElementById("thursday").innerHTML.split("/"),
+            document.getElementById("friday").innerHTML.split("/"),
+            document.getElementById("saturday").innerHTML.split("/"),
+            document.getElementById("sunday").innerHTML.split("/")],
+        date = new Date(),
+        day = arrWithDatesOfThedaysOfTheWeek[6][0],
+        month,
+        year = document.getElementById("dateForCalendar2").innerHTML.split(" "),
+        new1Date,
+        result = [];
 
-//         for (var i = 0; i < months.length; i++) {
-//             if (lastDate[1] === months[i]) {
-//                 month = i;
-//             }
-//         }
+        if (arrWithDatesOfThedaysOfTheWeek[6][1] <= 12) {
+            month = arrWithDatesOfThedaysOfTheWeek[6][1];
+        } else {
+            month = 1;
+        }
 
-//         new1Date = new Date(year, month, day);
-//         document.getElementById("monday").innerHTML = new1Date.getDate() + "/" + (Number(new1Date.getMonth())+1);
-//         new1Date.setDate(day+1);
-//         document.getElementById("tuesday").innerHTML = new1Date.getDate() + "/" + (Number(new1Date.getMonth())+1);
-//         new1Date.setDate(day+2);
-//         document.getElementById("wednesday").innerHTML = new1Date.getDate() + "/" + (Number(new1Date.getMonth())+1);
-//         new1Date.setDate(day+3);
-//         document.getElementById("thursday").innerHTML = new1Date.getDate() + "/" + (Number(new1Date.getMonth())+1);
-//         new1Date.setDate(day+4);
-//         document.getElementById("friday").innerHTML = new1Date.getDate() + "/" + (Number(new1Date.getMonth())+1);
-//         new1Date.setDate(day+5);
-//         document.getElementById("saturday").innerHTML = new1Date.getDate() + "/" + (Number(new1Date.getMonth())+1);
-//         new1Date.setDate(day+6);
-//         document.getElementById("sunday").innerHTML = new1Date.getDate() + "/" + (Number(new1Date.getMonth())+1);
+        new1Date = new Date(year[2], month, day),
+        new1Date.setDate(0);
 
+        for (var j=0, i = 1; i < 8; i++) {
+            var temporary;
 
-//     // document.getElementById(daysOfTheWeek).innerHTML = day + "/" + month;
-// }
+            if ((Number(day) + i) <= new1Date.getDate()) {
+                temporary = (Number(day) + i) + "/" + (Number(month));
+                result.push(temporary);
+            } else {
+                if ((Number(month) + 1) <= 12) {
+                    temporary = (j+1) + "/" + (Number(month)+1);
+                    j++;
+                    result.push(temporary);
+                } else {
+                    temporary = (j+1) + "/" + 1;
+                    j++;
+                    result.push(temporary);
+                }
+            }
+        }
+
+        document.getElementById("monday").innerHTML = result[0];
+        document.getElementById("tuesday").innerHTML = result[1];
+        document.getElementById("wednesday").innerHTML = result[2];
+        document.getElementById("thursday").innerHTML = result[3];
+        document.getElementById("friday").innerHTML = result[4];
+        document.getElementById("saturday").innerHTML = result[5];
+        document.getElementById("sunday").innerHTML = result[6];
+}
+
+function previousDatesOfThedaysOfTheWeek() {
+    var arrWithDatesOfThedaysOfTheWeek = [
+            document.getElementById("monday").innerHTML.split("/"),
+            document.getElementById("tuesday").innerHTML.split("/"),
+            document.getElementById("wednesday").innerHTML.split("/"),
+            document.getElementById("thursday").innerHTML.split("/"),
+            document.getElementById("friday").innerHTML.split("/"),
+            document.getElementById("saturday").innerHTML.split("/"),
+            document.getElementById("sunday").innerHTML.split("/")],
+        date = new Date(),
+        day = arrWithDatesOfThedaysOfTheWeek[0][0],
+        month,
+        year = document.getElementById("dateForCalendar2").innerHTML.split(" "),
+        new1Date,
+        result = [];
+
+        if (arrWithDatesOfThedaysOfTheWeek[0][1] >= 1) {
+            month = arrWithDatesOfThedaysOfTheWeek[0][1] 
+        } else {
+            month = 12;
+        }
+
+        new1Date = new Date(year[2], month-1, day),
+        new1Date.setDate(0);
+
+        for (var j=0, i = 1; i < 8; i++) {
+            var temporary;
+
+            if ((Number(day) - i) > 0) {
+                temporary = (Number(day) - i) + "/" + (Number(month));
+                result.unshift(temporary);
+            } else {
+                if ((Number(month) - 1) >= 1) {
+                    temporary = (new1Date.getDate() - j) + "/" + (Number(month)-1);
+                    j++;
+                    result.unshift(temporary);
+                } else {
+                    temporary = (new1Date.getDate() - j) + "/" + 12;
+                    j++;
+                    result.unshift(temporary);
+                }
+            }
+        }
+
+        document.getElementById("monday").innerHTML = result[0];
+        document.getElementById("tuesday").innerHTML = result[1];
+        document.getElementById("wednesday").innerHTML = result[2];
+        document.getElementById("thursday").innerHTML = result[3];
+        document.getElementById("friday").innerHTML = result[4];
+        document.getElementById("saturday").innerHTML = result[5];
+        document.getElementById("sunday").innerHTML = result[6];
+}
