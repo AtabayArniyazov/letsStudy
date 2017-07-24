@@ -795,15 +795,173 @@
 		</div>
 	</div>
 
+<!-- CALENDARS CONTENT -->
+	<div id="myCalendarContent">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 myCalendarContentStyle paddingTop15px">
+					<div class="col-md-2 text-left"><img src="images/icons/calendarLeftArrowButton.png" class="btn padding0" id="calendarLeftArrowButton" onclick="previousWeek()"></div>
+					<div class="col-md-8 text-center fontSize24px"><span id="dateForCalendar"></span> - <span id="dateForCalendar2"></span></div>
+					<div class="col-md-2 text-right"><img src="images/icons/calendarRightArrowButton.png" class="btn padding0" id="calendarRightArrowButton" onclick="nextWeek()"></div>
+				</div>
+				<div class="col-md-8 col-md-offset-2 myCalendarContentStyle">
+					<!-- <div class="container"> -->
+						<div class="row">
+							<div class="col-md-12 paddingBottom18px">
+								<div class="col-md-1 text-center headerBoxesForCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar"><p>пн</p><span class="smallDateColorForCalendar" id="monday"></span></div>
+								<div class="col-md-1 text-center boxesForCalendar"><p>вт</p><span class="smallDateColorForCalendar" id="tuesday"></span></div>
+								<div class="col-md-1 text-center boxesForCalendar"><p>ср</p><span class="smallDateColorForCalendar" id="wednesday"></span></div>
+								<div class="col-md-1 text-center boxesForCalendar"><p>чт</p><span class="smallDateColorForCalendar" id="thursday"></span></div>
+								<div class="col-md-1 text-center boxesForCalendar"><p>пт</p><span class="smallDateColorForCalendar" id="friday"></span></div>
+								<div class="col-md-1 text-center boxesForCalendar"><p>сб</p><span class="smallDateColorForCalendar" id="saturday"></span></div>
+								<div class="col-md-1 text-center boxesForCalendar"><p>вс</p><span class="smallDateColorForCalendar" id="sunday"></span></div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">10:00</div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">11:00</div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">12:00</div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">13:00</div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">14:00</div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">15:00</div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">16:00</div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">17:00</div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">18:00</div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">19:00</div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">20:00</div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">21:00</div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">22:00</div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar"></div>
+							</div>
+						</div>
+					<!-- </div> -->
+				</div>
+				<div class="col-md-8 col-md-offset-2 myCalendarContentStyle paddingTop15px">
+					<p class="text-right">Редактировать календарь</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
 <!-- MATERIALS CONTENT -->
 	<div id="myMaterialsContent">
 		
 	</div>
 
-<!-- CALENDARS CONTENT -->
-	<div id="myCalendarContent">
-		
-	</div>
 
 	<script type="text/javascript" src="js/teachersCabinet.js"></script>
 </body>

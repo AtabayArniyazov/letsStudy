@@ -46,7 +46,7 @@ header {
 	color: #FFFFFF;
 }
 
-#myNoticeContent, #myMessageContent, #myCollegsContent, #myStudentsContent {
+#myNoticeContent, #myMessageContent, #myCollegsContent, #myStudentsContent, #myCalendarContent {
 	display: none;
 }
 
@@ -172,4 +172,33 @@ div#myMessageFriendsName.col-md-4>div.col-md-12 {
 
 .border15pxWhite {
 	border: 15px solid #FFFFFF;
+}
+
+.myCalendarContentStyle {
+	background-color: #E5E5E5;
+	font-family: "Arial";
+	font-size: 16px;
+	color: #666666;
+}
+
+.headerBoxesForCalendar {
+	width: 100px;
+	height: 34px;
+}
+
+.boxesForCalendar {
+	width: 80px;
+	height: 34px;
+}
+
+.smallDateColorForCalendar {
+	color: #B2B2B2;
+}
+
+.borderForBoxesCalendar {
+	border: 1px solid #FFFFFF;
+}
+
+.lineHeightForBoxes {
+	line-height: 34px;
 }
