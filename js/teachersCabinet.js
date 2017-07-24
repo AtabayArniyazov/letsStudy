@@ -313,3 +313,27 @@ function previousDatesOfThedaysOfTheWeek() {
         document.getElementById("saturday").innerHTML = result[5];
         document.getElementById("sunday").innerHTML = result[6];
 }
+
+function onClickOnField(EO) {
+    EO = EO || window.event;
+    console.log("Id кликнутого элемента " + EO.target.id);
+
+    var temporary = EO.target.id.split("_"),
+        months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"],
+        dayAndMonth = document.getElementById(temporary[1]).innerHTML.split("/"),
+        hour = temporary[0] + ":00 ",
+        day = dayAndMonth[0] + " ",
+        month = months[dayAndMonth[1]-1] + " ",
+        year = document.getElementById("dateForCalendar2").innerHTML.split(" ");
+
+        year = year[2];
+
+        // console.log(hour);
+        // console.log(day);
+        // console.log(month);
+        // console.log(year);
+
+    console.log(hour + day + month + year);
+
+    // var style = document.getElementById(temporary).style.backgroundColor = "#FFF568";
+}
