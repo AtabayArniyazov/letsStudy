@@ -7,7 +7,7 @@ header.addEventListener("click", wichContent, false);
 
 function wichContent(EO) {
 	EO = EO || window.event;
-	console.log("Id кликнутого элемента " + EO.target.id);
+	// console.log("Id кликнутого элемента " + EO.target.id);
 
 	var targetID = EO.target.id;
 
@@ -49,7 +49,6 @@ $(document).ready(function() {
 });
 
 
-
 // work with calendar--------------------------------------------------------------------------------------------------------------------------
 document.getElementById("myCalendar").addEventListener("click", calendar, false);
 
@@ -62,34 +61,26 @@ document.getElementById("myCalendar").addEventListener("click", calendar, false)
             year = date.getFullYear(),
             fullDate,
             plus6day,
-            fullDatePlus6day;
+            fullDatePlus6day,
+            newDate1 = new Date(year, date.getMonth(), day),
+            newDate2 = new Date(year, date.getMonth()+1, day);
+
+            newDate1.setDate(0);
+            newDate2.setDate(0);
+
+        if (dayOfWeek === 0) {
+            dayOfWeek = 7;
+        }
+
 
         function fullDate() {
-            for (var i = 0; i < months.length; i++) {
-
-                if (date.getMonth() === i) {
-                    if (dayOfWeek !== 1) {
-                        if (dayOfWeek === 0) {
-                            day -= 6;
-                        } else {
-                            day -= (dayOfWeek - 1);
-                        }
-                    }
-
-                    fullDate = day + " " + months[i] + " " + year;
-                }
-            }
+            date.setDate(date.getDate() - (dayOfWeek - 1));
+            fullDate = date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear();
         }
 
         function plusDay(days) {
-            for (var i = 0; i < months.length; i++) {
-                fullDatePlus6day = new Date(year, date.getMonth(), day);
-                fullDatePlus6day.setDate(day+days);
-
-                if (fullDatePlus6day.getMonth() === i) {
-                    plus6day = fullDatePlus6day.getDate() + " " + months[i] + " " + fullDatePlus6day.getFullYear();
-                }
-            }
+            date.setDate(date.getDate() + 6);
+            plus6day = date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear();
         }
 
         fullDate();
@@ -103,109 +94,176 @@ document.getElementById("myCalendar").addEventListener("click", calendar, false)
 
 function nextWeek() {
     var months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"],
-        lastDate = document.getElementById("dateForCalendar2").innerHTML.split(" "),
-        day = Number(lastDate[0]),
-        month,
-        year = Number(lastDate[2]),
-        new1Date, result1Date, result2Date;
+        lastDate1 = document.getElementById("dateForCalendar").innerHTML.split(" "),
+        lastDate2 = document.getElementById("dateForCalendar2").innerHTML.split(" "),
+        day1 = Number(lastDate1[0]),
+        day2 = Number(lastDate2[0]),
+        month1,
+        month2,
+        year1 = Number(lastDate1[2]),
+        year2 = Number(lastDate2[2]),
+        new1Date, new2Date, result1Date, result2Date;
 
-        for (var i = 0; i < months.length; i++) {
-            if (lastDate[1] === months[i]) {
-                month = i;
-            }
+    for (var i = 0; i < months.length; i++) {
+        if (lastDate1[1] === months[i]) {
+            month1 = i;
         }
+    }
 
-        for (var i = 0; i < months.length; i++) {
-            new1Date = new Date(year, month, day);
-            new1Date.setDate(day+1);
-
-            if (new1Date.getMonth() === i) {
-                result1Date = new1Date.getDate() + " " + months[i] + " " + new1Date.getFullYear();
-            }
+    for (var i = 0; i < months.length; i++) {
+        if (lastDate2[1] === months[i]) {
+            month2 = i;
         }
+    }
 
-        for (var i = 0; i < months.length; i++) {
-            new1Date = new Date(year, month, day);
-            new1Date.setDate(day+7);
+    new1Date = new Date(year1, month1, day1);
+    new1Date.setDate(day1+7);
+    result1Date = new1Date.getDate() + " " + months[new1Date.getMonth()] + " " + new1Date.getFullYear();
+        
+    new2Date = new Date(year2, month2, day2);
+    new2Date.setDate(day2+7);
+    result2Date = new2Date.getDate() + " " + months[new2Date.getMonth()] + " " + new2Date.getFullYear();
 
-            if (new1Date.getMonth() === i) {
-                result2Date = new1Date.getDate() + " " + months[i] + " " + new1Date.getFullYear();
-            }
-        }
-
-        document.getElementById("dateForCalendar").innerHTML = result1Date;
-        document.getElementById("dateForCalendar2").innerHTML = result2Date;
-        nextDatesOfThedaysOfTheWeek();
+    document.getElementById("dateForCalendar").innerHTML = result1Date;
+    document.getElementById("dateForCalendar2").innerHTML = result2Date;
+    nextDatesOfThedaysOfTheWeek();
 }
 
 function previousWeek() {
     var months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"],
-        lastDate = document.getElementById("dateForCalendar2").innerHTML.split(" "),
-        day = Number(lastDate[0]),
-        month,
-        year = Number(lastDate[2]),
-        new1Date, result1Date, result2Date;
+        lastDate1 = document.getElementById("dateForCalendar").innerHTML.split(" "),
+        lastDate2 = document.getElementById("dateForCalendar2").innerHTML.split(" "),
+        day1 = Number(lastDate1[0]),
+        day2 = Number(lastDate2[0]),
+        month1,
+        month2,
+        year1 = Number(lastDate1[2]),
+        year2 = Number(lastDate2[2]),
+        new1Date, new2Date, result1Date, result2Date;
 
-        for (var i = 0; i < months.length; i++) {
-            if (lastDate[1] === months[i]) {
-                month = i;
-            }
+    for (var i = 0; i < months.length; i++) {
+        if (lastDate1[1] === months[i]) {
+            month1 = i;
         }
+    }
 
-        for (var i = 0; i < months.length; i++) {
-            new1Date = new Date(year, month, day);
-            new1Date.setDate(day-13);
-
-            if (new1Date.getMonth() === i) {
-                result1Date = new1Date.getDate() + " " + months[i] + " " + new1Date.getFullYear();
-            }
+    for (var i = 0; i < months.length; i++) {
+        if (lastDate2[1] === months[i]) {
+            month2 = i;
         }
+    }
 
-        for (var i = 0; i < months.length; i++) {
-            new1Date = new Date(year, month, day);
-            new1Date.setDate(day-7);
+    new1Date = new Date(year1, month1, day1);
+    new2Date = new Date(year2, month2, day2);
 
-            if (new1Date.getMonth() === i) {
-                result2Date = new1Date.getDate() + " " + months[i] + " " + new1Date.getFullYear();
-            }
-        }
+    new1Date.setDate(day1-7);
+    result1Date = new1Date.getDate() + " " + months[new1Date.getMonth()] + " " + new1Date.getFullYear();
 
-        document.getElementById("dateForCalendar").innerHTML = result1Date;
-        document.getElementById("dateForCalendar2").innerHTML = result2Date;
-        previousDatesOfThedaysOfTheWeek();
+    new2Date.setDate(day2-7);
+    result2Date = new2Date.getDate() + " " + months[new2Date.getMonth()] + " " + new2Date.getFullYear();
+
+    document.getElementById("dateForCalendar").innerHTML = result1Date;
+    document.getElementById("dateForCalendar2").innerHTML = result2Date;
+    previousDatesOfThedaysOfTheWeek();
 }
 
 function datesOfThedaysOfTheWeek() {
     var months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"],
         date = new Date(),
-        day = date.getDate(),
-        month = months[date.getMonth()],
-        year = date.getFullYear(),
-        new1Date = new Date(year,date.getMonth()+1, day),
+        dayOfWeek = date.getDay(),
         result = [];
-
-        new1Date.setDate(0);
         
-        for (var j=0, i = 0; i < 8; i++) {
-            var temporary;
+    if (dayOfWeek === 1) {
+        var dayOfWeek1 = new Date (date.getFullYear(), date.getMonth(), date.getDate());
+            
+        dayOfWeek1.setDate(date.getDate() - (date.getDay() - 1));
+        result[0] = dayOfWeek1.getDate() + "/" + Number(dayOfWeek1.getMonth() + 1);
 
-            if (day+i <= new1Date.getDate()) {
-                temporary = (Number(day) + i) + "/" + (Number(date.getMonth())+1);
-                result.push(temporary);
-            } else {
-                temporary = (j+1) + "/" + (Number(date.getMonth())+1);
-                j++;
-                result.push(temporary);
-            }
+        for (var j=1,i = 2; i < 8; i++, j++) {
+            dayOfWeek1.setDate(dayOfWeek1.getDate() + 1);
+            result[j] = dayOfWeek1.getDate() + "/" + Number(dayOfWeek1.getMonth() + 1);
         }
+    }
 
-        document.getElementById("monday").innerHTML = result[0];
-        document.getElementById("tuesday").innerHTML = result[1];
-        document.getElementById("wednesday").innerHTML = result[2];
-        document.getElementById("thursday").innerHTML = result[3];
-        document.getElementById("friday").innerHTML = result[4];
-        document.getElementById("saturday").innerHTML = result[5];
-        document.getElementById("sunday").innerHTML = result[6];
+    if (dayOfWeek === 2) {
+        var dayOfWeek2 = new Date (date.getFullYear(), date.getMonth(), date.getDate());
+            
+        dayOfWeek2.setDate(date.getDate() - (date.getDay() - 1));
+        result[0] = dayOfWeek2.getDate() + "/" + Number(dayOfWeek2.getMonth() + 1);
+
+        for (var j=1,i = 2; i < 8; i++, j++) {
+            dayOfWeek2.setDate(dayOfWeek2.getDate() + 1);
+            result[j] = dayOfWeek2.getDate() + "/" + Number(dayOfWeek2.getMonth() + 1);
+        }
+    }
+
+    if (dayOfWeek === 3) {
+        var dayOfWeek3 = new Date (date.getFullYear(), date.getMonth(), date.getDate());
+            
+        dayOfWeek3.setDate(date.getDate() - (date.getDay() - 1));
+        result[0] = dayOfWeek3.getDate() + "/" + Number(dayOfWeek3.getMonth() + 1);
+
+        for (var j=1,i = 2; i < 8; i++, j++) {
+            dayOfWeek3.setDate(dayOfWeek3.getDate() + 1);
+            result[j] = dayOfWeek3.getDate() + "/" + Number(dayOfWeek3.getMonth() + 1);
+        }
+    }
+
+    if (dayOfWeek === 4) {
+        var dayOfWeek4 = new Date (date.getFullYear(), date.getMonth(), date.getDate());
+            
+        dayOfWeek4.setDate(date.getDate() - (date.getDay() - 1));
+        result[0] = dayOfWeek4.getDate() + "/" + Number(dayOfWeek4.getMonth() + 1);
+
+        for (var j=1,i = 2; i < 8; i++, j++) {
+            dayOfWeek4.setDate(dayOfWeek4.getDate() + 1);
+            result[j] = dayOfWeek4.getDate() + "/" + Number(dayOfWeek4.getMonth() + 1);
+        }
+    }
+
+    if (dayOfWeek === 5) {
+        var dayOfWeek5 = new Date (date.getFullYear(), date.getMonth(), date.getDate());
+            
+        dayOfWeek5.setDate(date.getDate() - (date.getDay() - 1));
+        result[0] = dayOfWeek5.getDate() + "/" + Number(dayOfWeek5.getMonth() + 1);
+
+        for (var j=1,i = 2; i < 8; i++, j++) {
+            dayOfWeek5.setDate(dayOfWeek5.getDate() + 1);
+            result[j] = dayOfWeek5.getDate() + "/" + Number(dayOfWeek5.getMonth() + 1);
+        }
+    }
+
+    if (dayOfWeek === 6) {
+        var dayOfWeek6 = new Date (date.getFullYear(), date.getMonth(), date.getDate());
+            
+        dayOfWeek6.setDate(date.getDate() - (date.getDay() - 1));
+        result[0] = dayOfWeek6.getDate() + "/" + Number(dayOfWeek6.getMonth() + 1);
+
+        for (var j=1,i = 2; i < 8; i++, j++) {
+            dayOfWeek6.setDate(dayOfWeek6.getDate() + 1);
+            result[j] = dayOfWeek6.getDate() + "/" + Number(dayOfWeek6.getMonth() + 1);
+        }
+    }
+
+    if (dayOfWeek === 0) { // 0 - it's a sunday
+        var dayOfWeek0 = new Date (date.getFullYear(), date.getMonth(), date.getDate());
+            
+        dayOfWeek0.setDate(date.getDate() - (7 - 1));
+        result[0] = dayOfWeek0.getDate() + "/" + Number(dayOfWeek0.getMonth() + 1);
+
+        for (var j=1,i = 2; i < 8; i++, j++) {
+            dayOfWeek0.setDate(dayOfWeek0.getDate() + 1);
+            result[j] = dayOfWeek0.getDate() + "/" + Number(dayOfWeek0.getMonth() + 1);
+        }
+    }
+
+    document.getElementById("monday").innerHTML = result[0];
+    document.getElementById("tuesday").innerHTML = result[1];
+    document.getElementById("wednesday").innerHTML = result[2];
+    document.getElementById("thursday").innerHTML = result[3];
+    document.getElementById("friday").innerHTML = result[4];
+    document.getElementById("saturday").innerHTML = result[5];
+    document.getElementById("sunday").innerHTML = result[6];
 }
 
 function nextDatesOfThedaysOfTheWeek() {
@@ -219,46 +277,26 @@ function nextDatesOfThedaysOfTheWeek() {
             document.getElementById("sunday").innerHTML.split("/")],
         date = new Date(),
         day = arrWithDatesOfThedaysOfTheWeek[6][0],
-        month,
+        month = arrWithDatesOfThedaysOfTheWeek[6][1],
         year = document.getElementById("dateForCalendar2").innerHTML.split(" "),
         new1Date,
         result = [];
 
-        if (arrWithDatesOfThedaysOfTheWeek[6][1] <= 12) {
-            month = arrWithDatesOfThedaysOfTheWeek[6][1];
-        } else {
-            month = 1;
-        }
+    new1Date = new Date (year[2], month-1, day);
 
-        new1Date = new Date(year[2], month, day),
-        new1Date.setDate(0);
+    for (var j=0,i = 1; i < 8; i++, j++) {
+        new1Date.setDate(new1Date.getDate() + 1);
 
-        for (var j=0, i = 1; i < 8; i++) {
-            var temporary;
+        result[j] = new1Date.getDate() + "/" + Number(new1Date.getMonth() + 1);
+    }
 
-            if ((Number(day) + i) <= new1Date.getDate()) {
-                temporary = (Number(day) + i) + "/" + (Number(month));
-                result.push(temporary);
-            } else {
-                if ((Number(month) + 1) <= 12) {
-                    temporary = (j+1) + "/" + (Number(month)+1);
-                    j++;
-                    result.push(temporary);
-                } else {
-                    temporary = (j+1) + "/" + 1;
-                    j++;
-                    result.push(temporary);
-                }
-            }
-        }
-
-        document.getElementById("monday").innerHTML = result[0];
-        document.getElementById("tuesday").innerHTML = result[1];
-        document.getElementById("wednesday").innerHTML = result[2];
-        document.getElementById("thursday").innerHTML = result[3];
-        document.getElementById("friday").innerHTML = result[4];
-        document.getElementById("saturday").innerHTML = result[5];
-        document.getElementById("sunday").innerHTML = result[6];
+    document.getElementById("monday").innerHTML = result[0];
+    document.getElementById("tuesday").innerHTML = result[1];
+    document.getElementById("wednesday").innerHTML = result[2];
+    document.getElementById("thursday").innerHTML = result[3];
+    document.getElementById("friday").innerHTML = result[4];
+    document.getElementById("saturday").innerHTML = result[5];
+    document.getElementById("sunday").innerHTML = result[6];
 }
 
 function previousDatesOfThedaysOfTheWeek() {
@@ -277,46 +315,46 @@ function previousDatesOfThedaysOfTheWeek() {
         new1Date,
         result = [];
 
-        if (arrWithDatesOfThedaysOfTheWeek[0][1] >= 1) {
-            month = arrWithDatesOfThedaysOfTheWeek[0][1] 
+    if (arrWithDatesOfThedaysOfTheWeek[0][1] >= 1) {
+        month = arrWithDatesOfThedaysOfTheWeek[0][1] 
+    } else {
+        month = 12;
+    }
+
+    new1Date = new Date(year[2], month-1, day),
+    new1Date.setDate(0);
+
+    for (var j=0, i = 1; i < 8; i++) {
+        var temporary;
+
+        if ((Number(day) - i) > 0) {
+            temporary = (Number(day) - i) + "/" + (Number(month));
+            result.unshift(temporary);
         } else {
-            month = 12;
-        }
-
-        new1Date = new Date(year[2], month-1, day),
-        new1Date.setDate(0);
-
-        for (var j=0, i = 1; i < 8; i++) {
-            var temporary;
-
-            if ((Number(day) - i) > 0) {
-                temporary = (Number(day) - i) + "/" + (Number(month));
+            if ((Number(month) - 1) >= 1) {
+                temporary = (new1Date.getDate() - j) + "/" + (Number(month)-1);
+                j++;
                 result.unshift(temporary);
             } else {
-                if ((Number(month) - 1) >= 1) {
-                    temporary = (new1Date.getDate() - j) + "/" + (Number(month)-1);
-                    j++;
-                    result.unshift(temporary);
-                } else {
-                    temporary = (new1Date.getDate() - j) + "/" + 12;
-                    j++;
-                    result.unshift(temporary);
-                }
+                temporary = (new1Date.getDate() - j) + "/" + 12;
+                j++;
+                result.unshift(temporary);
             }
         }
+    }
 
-        document.getElementById("monday").innerHTML = result[0];
-        document.getElementById("tuesday").innerHTML = result[1];
-        document.getElementById("wednesday").innerHTML = result[2];
-        document.getElementById("thursday").innerHTML = result[3];
-        document.getElementById("friday").innerHTML = result[4];
-        document.getElementById("saturday").innerHTML = result[5];
-        document.getElementById("sunday").innerHTML = result[6];
+    document.getElementById("monday").innerHTML = result[0];
+    document.getElementById("tuesday").innerHTML = result[1];
+    document.getElementById("wednesday").innerHTML = result[2];
+    document.getElementById("thursday").innerHTML = result[3];
+    document.getElementById("friday").innerHTML = result[4];
+    document.getElementById("saturday").innerHTML = result[5];
+    document.getElementById("sunday").innerHTML = result[6];
 }
 
 function onClickOnField(EO) {
     EO = EO || window.event;
-    console.log("Id кликнутого элемента " + EO.target.id);
+    // console.log("Id кликнутой ячейки " + EO.target.id);
 
     var temporary = EO.target.id.split("_"),
         months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"],
@@ -324,16 +362,369 @@ function onClickOnField(EO) {
         hour = temporary[0] + ":00 ",
         day = dayAndMonth[0] + " ",
         month = months[dayAndMonth[1]-1] + " ",
-        year = document.getElementById("dateForCalendar2").innerHTML.split(" ");
+        year1 = document.getElementById("dateForCalendar").innerHTML.split(" "),
+        year2 = document.getElementById("dateForCalendar2").innerHTML.split(" "),
+        dateForReturn;
 
-        year = year[2];
+    year1 = year1[2];
+    year2 = year2[2];
 
-        // console.log(hour);
-        // console.log(day);
-        // console.log(month);
-        // console.log(year);
-
-    console.log(hour + day + month + year);
-
-    // var style = document.getElementById(temporary).style.backgroundColor = "#FFF568";
+    if (year1 !== year2) {
+        if (Number(dayAndMonth[0]) > 24 && Number(dayAndMonth[0]) <= 31) {
+            dateForReturn = hour + day + month + year1;
+        } else {
+            dateForReturn = hour + day + month + year2;
+        }
+    } else {
+        dateForReturn = hour + day + month + year2
+    }
+    
+    console.log(dateForReturn);
+ 
+    // var modalConfirmSelectedDate = document.getElementById("modalConfirmSelectedDate");
+    // modalConfirmSelectedDate.innerHTML = " " + day + month + hour + "- " + (Number(temporary[0])+1) + ":00";
 }
+
+
+// work with EDIT MY CALENDAR--------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------------------------------
+function editCalendar() {
+    document.getElementById("content").innerHTML = "";
+    document.getElementById("content").innerHTML = document.getElementById("editMyCalendarContent").innerHTML;
+    calendarEdit();
+}
+
+// -------------------------------------------------------------------------------------------
+
+    function calendarEdit(){
+        var date = new Date(),
+            months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"],
+            dayOfWeek = date.getDay(),
+            day = date.getDate(),
+            month,
+            year = date.getFullYear(),
+            fullDate,
+            plus6day,
+            fullDatePlus6day,
+            newDate1 = new Date(year, date.getMonth(), day),
+            newDate2 = new Date(year, date.getMonth()+1, day);
+
+            newDate1.setDate(0);
+            newDate2.setDate(0);
+
+        if (dayOfWeek === 0) {
+            dayOfWeek = 7;
+        }
+
+
+        function fullDateEdit() {
+            date.setDate(date.getDate() - (dayOfWeek - 1));
+            fullDate = date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear();
+        }
+
+        function plusDayEdit(days) {
+            date.setDate(date.getDate() + 6);
+            plus6day = date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear();
+        }
+
+        fullDateEdit();
+        plusDayEdit(6);
+
+        document.getElementById("dateForCalendar").innerHTML = fullDate;
+        document.getElementById("dateForCalendar2").innerHTML = plus6day;
+        datesOfThedaysOfTheWeekEdit();
+    };
+
+
+function nextWeekEdit() {
+    var months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"],
+        lastDate1 = document.getElementById("dateForCalendar").innerHTML.split(" "),
+        lastDate2 = document.getElementById("dateForCalendar2").innerHTML.split(" "),
+        day1 = Number(lastDate1[0]),
+        day2 = Number(lastDate2[0]),
+        month1,
+        month2,
+        year1 = Number(lastDate1[2]),
+        year2 = Number(lastDate2[2]),
+        new1Date, new2Date, result1Date, result2Date;
+
+    for (var i = 0; i < months.length; i++) {
+        if (lastDate1[1] === months[i]) {
+            month1 = i;
+        }
+    }
+
+    for (var i = 0; i < months.length; i++) {
+        if (lastDate2[1] === months[i]) {
+            month2 = i;
+        }
+    }
+
+    new1Date = new Date(year1, month1, day1);
+    new1Date.setDate(day1+7);
+    result1Date = new1Date.getDate() + " " + months[new1Date.getMonth()] + " " + new1Date.getFullYear();
+        
+    new2Date = new Date(year2, month2, day2);
+    new2Date.setDate(day2+7);
+    result2Date = new2Date.getDate() + " " + months[new2Date.getMonth()] + " " + new2Date.getFullYear();
+
+    document.getElementById("dateForCalendar").innerHTML = result1Date;
+    document.getElementById("dateForCalendar2").innerHTML = result2Date;
+    nextDatesOfThedaysOfTheWeekEdit();
+}
+
+function previousWeekEdit() {
+    var months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"],
+        lastDate1 = document.getElementById("dateForCalendar").innerHTML.split(" "),
+        lastDate2 = document.getElementById("dateForCalendar2").innerHTML.split(" "),
+        day1 = Number(lastDate1[0]),
+        day2 = Number(lastDate2[0]),
+        month1,
+        month2,
+        year1 = Number(lastDate1[2]),
+        year2 = Number(lastDate2[2]),
+        new1Date, new2Date, result1Date, result2Date;
+
+    for (var i = 0; i < months.length; i++) {
+        if (lastDate1[1] === months[i]) {
+            month1 = i;
+        }
+    }
+
+    for (var i = 0; i < months.length; i++) {
+        if (lastDate2[1] === months[i]) {
+            month2 = i;
+        }
+    }
+
+    new1Date = new Date(year1, month1, day1);
+    new2Date = new Date(year2, month2, day2);
+
+    new1Date.setDate(day1-7);
+    result1Date = new1Date.getDate() + " " + months[new1Date.getMonth()] + " " + new1Date.getFullYear();
+
+    new2Date.setDate(day2-7);
+    result2Date = new2Date.getDate() + " " + months[new2Date.getMonth()] + " " + new2Date.getFullYear();
+
+    document.getElementById("dateForCalendar").innerHTML = result1Date;
+    document.getElementById("dateForCalendar2").innerHTML = result2Date;
+    previousDatesOfThedaysOfTheWeekEdit();
+}
+
+function datesOfThedaysOfTheWeekEdit() {
+    var months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"],
+        date = new Date(),
+        dayOfWeek = date.getDay(),
+        result = [];
+        
+    if (dayOfWeek === 1) {
+        var dayOfWeek1 = new Date (date.getFullYear(), date.getMonth(), date.getDate());
+            
+        dayOfWeek1.setDate(date.getDate() - (date.getDay() - 1));
+        result[0] = dayOfWeek1.getDate() + "/" + Number(dayOfWeek1.getMonth() + 1);
+
+        for (var j=1,i = 2; i < 8; i++, j++) {
+            dayOfWeek1.setDate(dayOfWeek1.getDate() + 1);
+            result[j] = dayOfWeek1.getDate() + "/" + Number(dayOfWeek1.getMonth() + 1);
+        }
+    }
+
+    if (dayOfWeek === 2) {
+        var dayOfWeek2 = new Date (date.getFullYear(), date.getMonth(), date.getDate());
+            
+        dayOfWeek2.setDate(date.getDate() - (date.getDay() - 1));
+        result[0] = dayOfWeek2.getDate() + "/" + Number(dayOfWeek2.getMonth() + 1);
+
+        for (var j=1,i = 2; i < 8; i++, j++) {
+            dayOfWeek2.setDate(dayOfWeek2.getDate() + 1);
+            result[j] = dayOfWeek2.getDate() + "/" + Number(dayOfWeek2.getMonth() + 1);
+        }
+    }
+
+    if (dayOfWeek === 3) {
+        var dayOfWeek3 = new Date (date.getFullYear(), date.getMonth(), date.getDate());
+            
+        dayOfWeek3.setDate(date.getDate() - (date.getDay() - 1));
+        result[0] = dayOfWeek3.getDate() + "/" + Number(dayOfWeek3.getMonth() + 1);
+
+        for (var j=1,i = 2; i < 8; i++, j++) {
+            dayOfWeek3.setDate(dayOfWeek3.getDate() + 1);
+            result[j] = dayOfWeek3.getDate() + "/" + Number(dayOfWeek3.getMonth() + 1);
+        }
+    }
+
+    if (dayOfWeek === 4) {
+        var dayOfWeek4 = new Date (date.getFullYear(), date.getMonth(), date.getDate());
+            
+        dayOfWeek4.setDate(date.getDate() - (date.getDay() - 1));
+        result[0] = dayOfWeek4.getDate() + "/" + Number(dayOfWeek4.getMonth() + 1);
+
+        for (var j=1,i = 2; i < 8; i++, j++) {
+            dayOfWeek4.setDate(dayOfWeek4.getDate() + 1);
+            result[j] = dayOfWeek4.getDate() + "/" + Number(dayOfWeek4.getMonth() + 1);
+        }
+    }
+
+    if (dayOfWeek === 5) {
+        var dayOfWeek5 = new Date (date.getFullYear(), date.getMonth(), date.getDate());
+            
+        dayOfWeek5.setDate(date.getDate() - (date.getDay() - 1));
+        result[0] = dayOfWeek5.getDate() + "/" + Number(dayOfWeek5.getMonth() + 1);
+
+        for (var j=1,i = 2; i < 8; i++, j++) {
+            dayOfWeek5.setDate(dayOfWeek5.getDate() + 1);
+            result[j] = dayOfWeek5.getDate() + "/" + Number(dayOfWeek5.getMonth() + 1);
+        }
+    }
+
+    if (dayOfWeek === 6) {
+        var dayOfWeek6 = new Date (date.getFullYear(), date.getMonth(), date.getDate());
+            
+        dayOfWeek6.setDate(date.getDate() - (date.getDay() - 1));
+        result[0] = dayOfWeek6.getDate() + "/" + Number(dayOfWeek6.getMonth() + 1);
+
+        for (var j=1,i = 2; i < 8; i++, j++) {
+            dayOfWeek6.setDate(dayOfWeek6.getDate() + 1);
+            result[j] = dayOfWeek6.getDate() + "/" + Number(dayOfWeek6.getMonth() + 1);
+        }
+    }
+
+    if (dayOfWeek === 0) { // 0 - it's a sunday
+        var dayOfWeek0 = new Date (date.getFullYear(), date.getMonth(), date.getDate());
+            
+        dayOfWeek0.setDate(date.getDate() - (7 - 1));
+        result[0] = dayOfWeek0.getDate() + "/" + Number(dayOfWeek0.getMonth() + 1);
+
+        for (var j=1,i = 2; i < 8; i++, j++) {
+            dayOfWeek0.setDate(dayOfWeek0.getDate() + 1);
+            result[j] = dayOfWeek0.getDate() + "/" + Number(dayOfWeek0.getMonth() + 1);
+        }
+    }
+
+    document.getElementById("monday").innerHTML = result[0];
+    document.getElementById("tuesday").innerHTML = result[1];
+    document.getElementById("wednesday").innerHTML = result[2];
+    document.getElementById("thursday").innerHTML = result[3];
+    document.getElementById("friday").innerHTML = result[4];
+    document.getElementById("saturday").innerHTML = result[5];
+    document.getElementById("sunday").innerHTML = result[6];
+}
+
+function nextDatesOfThedaysOfTheWeekEdit() {
+    var arrWithDatesOfThedaysOfTheWeek = [
+            document.getElementById("monday").innerHTML.split("/"),
+            document.getElementById("tuesday").innerHTML.split("/"),
+            document.getElementById("wednesday").innerHTML.split("/"),
+            document.getElementById("thursday").innerHTML.split("/"),
+            document.getElementById("friday").innerHTML.split("/"),
+            document.getElementById("saturday").innerHTML.split("/"),
+            document.getElementById("sunday").innerHTML.split("/")],
+        date = new Date(),
+        day = arrWithDatesOfThedaysOfTheWeek[6][0],
+        month = arrWithDatesOfThedaysOfTheWeek[6][1],
+        year = document.getElementById("dateForCalendar2").innerHTML.split(" "),
+        new1Date,
+        result = [];
+
+    new1Date = new Date (year[2], month-1, day);
+
+    for (var j=0,i = 1; i < 8; i++, j++) {
+        new1Date.setDate(new1Date.getDate() + 1);
+
+        result[j] = new1Date.getDate() + "/" + Number(new1Date.getMonth() + 1);
+    }
+
+    document.getElementById("monday").innerHTML = result[0];
+    document.getElementById("tuesday").innerHTML = result[1];
+    document.getElementById("wednesday").innerHTML = result[2];
+    document.getElementById("thursday").innerHTML = result[3];
+    document.getElementById("friday").innerHTML = result[4];
+    document.getElementById("saturday").innerHTML = result[5];
+    document.getElementById("sunday").innerHTML = result[6];
+}
+
+function previousDatesOfThedaysOfTheWeekEdit() {
+    var arrWithDatesOfThedaysOfTheWeek = [
+            document.getElementById("monday").innerHTML.split("/"),
+            document.getElementById("tuesday").innerHTML.split("/"),
+            document.getElementById("wednesday").innerHTML.split("/"),
+            document.getElementById("thursday").innerHTML.split("/"),
+            document.getElementById("friday").innerHTML.split("/"),
+            document.getElementById("saturday").innerHTML.split("/"),
+            document.getElementById("sunday").innerHTML.split("/")],
+        date = new Date(),
+        day = arrWithDatesOfThedaysOfTheWeek[0][0],
+        month,
+        year = document.getElementById("dateForCalendar2").innerHTML.split(" "),
+        new1Date,
+        result = [];
+
+    if (arrWithDatesOfThedaysOfTheWeek[0][1] >= 1) {
+        month = arrWithDatesOfThedaysOfTheWeek[0][1] 
+    } else {
+        month = 12;
+    }
+
+    new1Date = new Date(year[2], month-1, day),
+    new1Date.setDate(0);
+
+    for (var j=0, i = 1; i < 8; i++) {
+        var temporary;
+
+        if ((Number(day) - i) > 0) {
+            temporary = (Number(day) - i) + "/" + (Number(month));
+            result.unshift(temporary);
+        } else {
+            if ((Number(month) - 1) >= 1) {
+                temporary = (new1Date.getDate() - j) + "/" + (Number(month)-1);
+                j++;
+                result.unshift(temporary);
+            } else {
+                temporary = (new1Date.getDate() - j) + "/" + 12;
+                j++;
+                result.unshift(temporary);
+            }
+        }
+    }
+
+    document.getElementById("monday").innerHTML = result[0];
+    document.getElementById("tuesday").innerHTML = result[1];
+    document.getElementById("wednesday").innerHTML = result[2];
+    document.getElementById("thursday").innerHTML = result[3];
+    document.getElementById("friday").innerHTML = result[4];
+    document.getElementById("saturday").innerHTML = result[5];
+    document.getElementById("sunday").innerHTML = result[6];
+}
+
+// function onClickOnField(EO) {
+//     EO = EO || window.event;
+//     // console.log("Id кликнутой ячейки " + EO.target.id);
+
+//     var temporary = EO.target.id.split("_"),
+//         months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"],
+//         dayAndMonth = document.getElementById(temporary[1]).innerHTML.split("/"),
+//         hour = temporary[0] + ":00 ",
+//         day = dayAndMonth[0] + " ",
+//         month = months[dayAndMonth[1]-1] + " ",
+//         year1 = document.getElementById("dateForCalendar").innerHTML.split(" "),
+//         year2 = document.getElementById("dateForCalendar2").innerHTML.split(" "),
+//         dateForReturn;
+
+//     year1 = year1[2];
+//     year2 = year2[2];
+
+//     if (year1 !== year2) {
+//         if (Number(dayAndMonth[0]) > 24 && Number(dayAndMonth[0]) <= 31) {
+//             dateForReturn = hour + day + month + year1;
+//         } else {
+//             dateForReturn = hour + day + month + year2;
+//         }
+//     } else {
+//         dateForReturn = hour + day + month + year2
+//     }
+    
+//     console.log(dateForReturn);
+ 
+//     // var modalConfirmSelectedDate = document.getElementById("modalConfirmSelectedDate");
+//     // modalConfirmSelectedDate.innerHTML = " " + day + month + hour + "- " + (Number(temporary[0])+1) + ":00";
+// }

@@ -820,13 +820,26 @@
 							<div class="col-md-12 lineHeightForBoxes">
 								<div class="col-md-1 text-center headerBoxesForCalendar">10:00</div>
 								<div onclick="onClickOnField()">
-									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="10_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="10_monday" data-toggle="modal" data-target="#modalConfirmReservation"></div>
 									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="10_tuesday"></div>
 									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="10_wednesday"></div>
 									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="10_thursday"></div>
 									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="10_friday"></div>
 									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="10_saturday"></div>
 									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="10_sunday"></div>
+
+									<!-- <button class="btn btn-info btn-lg" type="button" data-toggle="modal" data-target="#myModal">Показать всплывающее окно</button> -->
+									<!-- <div id="modalConfirmReservation" class="modal fade" tabindex="-1">
+										<div class="modal-dialog modal-sm">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h4 class="modal-title"><strong>Дата:</strong><span id="modalConfirmSelectedDate"></span></h4>
+												</div>
+												<div class="modal-body">Текст уведомления</div>
+												<div class="modal-footer"><button class="btn btn-default" type="button" data-dismiss="modal">Закрыть</button></div>
+											</div>
+										</div>
+									</div> -->
 								</div>
 							</div>
 							<div class="col-md-12 lineHeightForBoxes">
@@ -977,7 +990,342 @@
 					<!-- </div> -->
 				</div>
 				<div class="col-md-8 col-md-offset-2 text-right myCalendarContentStyle paddingTop15px">
-					<p class="btn">Редактировать календарь</p>
+					<p class="btn" onclick="editCalendar()">Редактировать календарь</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- EDIT CALENDARS CONTENT -->
+	<div id="editMyCalendarContent">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p class="h3">Редактирование личного расписания</p>
+				</div>
+				<div class="col-md-8 col-md-offset-2 myCalendarContentStyle paddingTop15px">
+					<div class="col-md-2 text-left"><img src="images/icons/calendarLeftArrowButton.png" class="btn padding0" id="calendarLeftArrowButton" onclick="previousWeekEdit()"></div>
+					<div class="col-md-8 text-center fontSize24px"><span id="dateForCalendar"></span> - <span id="dateForCalendar2"></span></div>
+					<div class="col-md-2 text-right"><img src="images/icons/calendarRightArrowButton.png" class="btn padding0" id="calendarRightArrowButton" onclick="nextWeekEdit()"></div>
+				</div>
+				<div class="col-md-8 col-md-offset-2 myCalendarContentStyle">
+					<!-- <div class="container"> -->
+						<div class="row">
+							<div class="col-md-12 paddingBottom18px">
+								<div class="col-md-1 text-center headerBoxesForCalendar"></div>
+								<div class="col-md-1 text-center boxesForCalendar"><p>пн</p><span class="smallDateColorForCalendar" id="monday"></span></div>
+								<div class="col-md-1 text-center boxesForCalendar"><p>вт</p><span class="smallDateColorForCalendar" id="tuesday"></span></div>
+								<div class="col-md-1 text-center boxesForCalendar"><p>ср</p><span class="smallDateColorForCalendar" id="wednesday"></span></div>
+								<div class="col-md-1 text-center boxesForCalendar"><p>чт</p><span class="smallDateColorForCalendar" id="thursday"></span></div>
+								<div class="col-md-1 text-center boxesForCalendar"><p>пт</p><span class="smallDateColorForCalendar" id="friday"></span></div>
+								<div class="col-md-1 text-center boxesForCalendar"><p>сб</p><span class="smallDateColorForCalendar" id="saturday"></span></div>
+								<div class="col-md-1 text-center boxesForCalendar"><p>вс</p><span class="smallDateColorForCalendar" id="sunday"></span></div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">00:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="00_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="00_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="00_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="00_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="00_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="00_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="00_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">01:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="01_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="01_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="01_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="01_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="01_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="01_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="01_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">02:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="02_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="02_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="02_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="02_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="02_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="02_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="02_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">02:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="02_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="02_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="02_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="02_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="02_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="02_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="02_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">03:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="03_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="03_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="03_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="03_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="03_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="03_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="03_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">04:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="04_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="04_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="04_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="04_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="04_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="04_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="04_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">05:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="05_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="05_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="05_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="05_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="05_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="05_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="05_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">06:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="06_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="06_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="06_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="06_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="06_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="06_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="06_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">07:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="07_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="07_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="07_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="07_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="07_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="07_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="07_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">08:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="08_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="08_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="08_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="08_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="08_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="08_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="08_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">09:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="09_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="09_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="09_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="09_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="09_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="09_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="09_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">10:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="10_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="10_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="10_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="10_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="10_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="10_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="10_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">11:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="11_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="11_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="11_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="11_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="11_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="11_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="11_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">12:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="12_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="12_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="12_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="12_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="12_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="12_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="12_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">13:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="13_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="13_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="13_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="13_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="13_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="13_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="13_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">14:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="14_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="14_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="14_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="14_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="14_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="14_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="14_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">15:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="15_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="15_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="15_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="15_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="15_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="15_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="15_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">16:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="16_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="16_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="16_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="16_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="16_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="16_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="16_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">17:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="17_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="17_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="17_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="17_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="17_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="17_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="17_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">18:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="18_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="18_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="18_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="18_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="18_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="18_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="18_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">19:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="19_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="19_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="19_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="19_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="19_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="19_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="19_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">20:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="20_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="20_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="20_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="20_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="20_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="20_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="20_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">21:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="21_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="21_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="21_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="21_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="21_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="21_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover bColorForEditCalendar" id="21_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">22:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="22_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="22_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="22_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="22_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="22_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="22_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="22_sunday"></div>
+								</div>
+							</div>
+							<div class="col-md-12 lineHeightForBoxes">
+								<div class="col-md-1 text-center headerBoxesForCalendar">23:00</div>
+								<div onclick="onClickOnField()">
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="23_monday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="23_tuesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="23_wednesday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="23_thursday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="23_friday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="23_saturday"></div>
+									<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" id="23_sunday"></div>
+								</div>
+							</div>
+						</div>
+					<!-- </div> -->
+				</div>
+				<div class="col-md-8 col-md-offset-2 text-center myCalendarContentStyle paddingTop15px">
+					<button class="btn" id="saveButton">Сохранить изменения</button>
 				</div>
 			</div>
 		</div>

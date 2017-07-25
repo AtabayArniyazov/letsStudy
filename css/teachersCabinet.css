@@ -46,7 +46,7 @@ header {
 	color: #FFFFFF;
 }
 
-#myNoticeContent, #myMessageContent, #myCollegsContent, #myStudentsContent, #myCalendarContent {
+#myNoticeContent, #myMessageContent, #myCollegsContent, #myStudentsContent, #myCalendarContent, #editMyCalendarContent {
 	display: none;
 }
 
@@ -211,4 +211,20 @@ div#myMessageFriendsName.col-md-4>div.col-md-12 {
 .confirmReservationForBoxes {
 	background-color: #FFF568;
 	color: #FFFFFF;
+}
+
+.modal-title {
+	padding: 10px;
+	background-color: #E6E6E6;
+}
+
+#saveButton {
+	font-size: 16px;
+	background-color: #ED1C24;
+	color: #FFFFFF;
+	padding: 15px 35px;
+}
+
+.bColorForEditCalendar {
+	background-color: #3CB878;
 }
