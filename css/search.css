@@ -134,3 +134,7 @@ header {
   left: 263px;
 }
 
+#teachersPageContent {
+  display: none;
+}
+
