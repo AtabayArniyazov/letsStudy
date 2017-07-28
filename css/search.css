@@ -138,3 +138,58 @@ header {
   display: none;
 }
 
+/*style for calendar*/
+.myCalendarContentStyle {
+  background-color: #E5E5E5;
+  font-family: "Arial";
+  font-size: 16px;
+  color: #666666;
+}
+
+.paddingTop15px {
+  padding-top: 15px;
+}
+
+.padding0 {
+  padding: 0;
+}
+
+.fontSize24px {
+  font-size: 24px;
+}
+
+.paddingBottom18px {
+  padding-bottom: 18px;
+}
+
+.headerBoxesForCalendar {
+  width: 100px;
+  height: 34px;
+}
+
+.boxesForCalendar {
+  width: 80px;
+  height: 34px;
+}
+
+.smallDateColorForCalendar {
+  color: #B2B2B2;
+}
+
+.lineHeightForBoxes {
+  line-height: 34px;
+}
+
+.borderForBoxesCalendar {
+  border: 1px solid #FFFFFF;
+}
+
+.onhover:hover {
+  background-color: #FFF568;
+  cursor: pointer;
+}
+
+
+
+
+/*end of style for calendar*/
