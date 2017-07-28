@@ -1,18 +1,23 @@
 "use strict"
 
 $(document).ready(function() {
-	// Доп параметры show & hide
-	$('#openCloseParametr').show();
-	$('#blockParametr').hide();
-
-	$('#openCloseParametr').click(function(event) {
-    	event.preventDefault(); // Для того чтобы при нажатии на ссылку не кидало вверх
-    	$('#blockParametr').slideToggle();
-  	});
-
-	// рейтинг звезд
-	
+    additionalParams();	
 });
+
+function additionalParams() {
+    document.getElementById("contentWhichWillChange").innerHTML = document.getElementById("mainContent").innerHTML;
+
+    // Доп параметры show & hide
+    $('#openCloseParametr').show();
+    $('#blockParametr').hide();
+
+    $('#openCloseParametr').click(function(event) {
+        event.preventDefault(); // Для того чтобы при нажатии на ссылку не кидало вверх
+        $('#blockParametr').slideToggle();
+    });
+
+    // рейтинг звезд
+}
 
 function teachersPage(EO) {
 	EO = EO || window.event;
@@ -35,7 +40,7 @@ function teachersPage(EO) {
 		return timeZone;
 	}
 
-	document.getElementById("mainContent").innerHTML = document.getElementById("teachersPageContent").innerHTML;
+	document.getElementById("contentWhichWillChange").innerHTML = document.getElementById("teachersPageContent").innerHTML;
 	document.getElementById("timeAndTimezone").innerHTML = determineTimeZone();
 
 
@@ -395,4 +400,28 @@ function onClickOnField(EO) {
  
     // var modalConfirmSelectedDate = document.getElementById("modalConfirmSelectedDate");
     // modalConfirmSelectedDate.innerHTML = " " + day + month + hour + "- " + (Number(temporary[0])+1) + ":00";
+}
+// ------------------------------------------------------------------------------------------------------------------------------------
+// work with icon searchTeacher
+function funcSearchTeachers() {
+    additionalParams();
+}
+
+// ------------------------------------------------------------------------------------------------------------------------------------
+// work with icon myTeachers
+function funcMyTeachers() {
+   
+    (function showTime(){ //function for teacers local time
+        var date = new Date(),
+            hours = date.getHours(),
+            minut = date.getMinutes();
+
+        document.getElementById("currentTimeJapan").innerHTML = (Number(hours) + 6) + ":" + minut; //japan
+        document.getElementById("currentTimeSerbia").innerHTML = (Number(hours) - 1) + ":" + minut; //serbia
+
+        window.setTimeout(showTime, 60000);
+    })();
+
+
+    document.getElementById("contentWhichWillChange").innerHTML = document.getElementById("myTeachersContent").innerHTML;
 }

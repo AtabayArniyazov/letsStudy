@@ -2,11 +2,16 @@ body {
 	padding: 0;
 	margin: 0;
 	color: #000000;
-	background-color: #FFFFFF;
+	background-color: #ECEFF8;
 	font: 16px "Myriad" #000000;
 
 	-webkit-font-smoothing: antialiased;
 	-webkit-overflow-scrolling: touch;
+}
+
+.container {
+  background-color: #FFFFFF;
+  padding-bottom: 100px;
 }
 
 .centered {
@@ -47,8 +52,16 @@ header {
 	border: none;
 }
 
-.marginBottom {
+.marginBottom10px {
 	margin-bottom: 10px;
+}
+
+.marginBottom15px {
+  margin-bottom: 15px;
+}
+
+.marginTop25px {
+  margin-top: 25px;
 }
 
 .caret-right {
@@ -134,7 +147,7 @@ header {
   left: 263px;
 }
 
-#teachersPageContent {
+#teachersPageContent, #mainContent, #myTeachersContent {
   display: none;
 }
 
@@ -148,6 +161,10 @@ header {
 
 .paddingTop15px {
   padding-top: 15px;
+}
+
+.paddingLeft0 {
+  padding-left: 0;
 }
 
 .padding0 {
@@ -188,8 +205,75 @@ header {
   background-color: #FFF568;
   cursor: pointer;
 }
-
-
-
-
 /*end of style for calendar*/
+/*----------------------------------------------------------------------------------------------------------------------------*/
+/*style for myTeachers*/
+ .myTeachersHeader {
+  padding-bottom: 25px;
+  padding-top: 15px;
+  border-bottom: 10px solid #ECEFF8;
+ }
+
+.myTeachersHeader>div>img {
+  width: 83px;
+  height: 83px;
+}
+
+.myTeacherHeaderText {
+  line-height: 83px;
+  margin-left: 10px;
+}
+
+  /*style for teachers*/
+.MTteachersWrap {
+  padding-bottom: 25px;
+  padding-top: 25px;
+  border-bottom: 10px solid #ECEFF8;
+  border-top: 10px solid #ECEFF8;
+}
+
+.MTteachersProfilePhoto {
+  width: 127px;
+  margin-bottom: 15px;
+}
+
+
+.MTteachersIconsWidth {
+  width: 39px;
+}
+
+.MTteachersLocalPlaceTime {
+  color: #7D7D7D;
+  margin-top: 4px;
+}
+
+.MTteachersFlagWidth {
+  width: 43px;
+}
+
+.MTteachersBlueColor {
+  color: #3790C7;
+}
+
+.MTteachersBlocksWidthHeightColor {
+  width: 145px;
+  height: 92px;
+  background-color: #D9DADB;
+}
+
+.MTteachersFontSize18px {
+  font-size: 18px;
+}
+
+.MTteachersPayedLessons {
+  color: #3E9DD7;
+  font-size: 30px;
+}
+
+.MTteachersIconsRadius {
+  border-radius: 20px;
+}
+
+  /*end of style for teachers*/
+
+/*end of style for myTeachers*/
