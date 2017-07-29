@@ -283,7 +283,6 @@
 								</div>
 							</div>
 				<!--  bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb-->
-								<!-- <button class="btn btn-info btn-lg" type="button" data-toggle="modal" data-target="#myModal">Показать всплывающее окно</button> -->
 											<div id="modalPlayVideo" class="modal fade" tabindex="-1">
 												<div class="modal-dialog modal-sm">
 													<div class="modal-content">
@@ -359,7 +358,6 @@
 
 	<!-- teachersPageContent -->
 	<div id="teachersPageContent">
-		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="col-md-2">
@@ -436,9 +434,7 @@
 					<div class="col-md-12" style="padding-bottom: 20px;" >
 						<p style="color: #338FC7;"><strong>Расписание </strong></p>
 						<div>
-							<!-- CALENDARS CONTENT -->
 							<div id="myCalendarContent">
-								<!-- <div class="container"> -->
 									<div class="row">
 										<div class="col-md-12 myCalendarContentStyle paddingTop15px">
 											<div class="col-md-2 text-left"><img src="images/icons/calendarLeftArrowButton.png" class="btn padding0" id="calendarLeftArrowButton" onclick="previousWeek()"></div>
@@ -446,7 +442,6 @@
 											<div class="col-md-2 text-right"><img src="images/icons/calendarRightArrowButton.png" class="btn padding0" id="calendarRightArrowButton" onclick="nextWeek()"></div>
 										</div>
 										<div class="col-md-12 myCalendarContentStyle">
-											<!-- <div class="container"> -->
 												<div class="row">
 													<div class="col-md-12 paddingBottom18px">
 														<div class="col-md-1 text-center headerBoxesForCalendar" style="width: 80px;"></div>
@@ -468,19 +463,6 @@
 															<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" style="width: 80px;" id="10_friday"></div>
 															<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" style="width: 80px;" id="10_saturday"></div>
 															<div class="col-md-1 text-center boxesForCalendar borderForBoxesCalendar onhover" style="width: 80px;" id="10_sunday"></div>
-
-															<!-- <button class="btn btn-info btn-lg" type="button" data-toggle="modal" data-target="#myModal">Показать всплывающее окно</button> -->
-															<!-- <div id="modalConfirmReservation" class="modal fade" tabindex="-1">
-																<div class="modal-dialog modal-sm">
-																	<div class="modal-content">
-																		<div class="modal-header">
-																			<h4 class="modal-title"><strong>Дата:</strong><span id="modalConfirmSelectedDate"></span></h4>
-																		</div>
-																		<div class="modal-body">Текст уведомления</div>
-																		<div class="modal-footer"><button class="btn btn-default" type="button" data-dismiss="modal">Закрыть</button></div>
-																	</div>
-																</div>
-															</div> -->
 														</div>
 													</div>
 													<div class="col-md-12 lineHeightForBoxes">
@@ -628,13 +610,11 @@
 														</div>
 													</div>
 												</div>
-											<!-- </div> -->
 										</div>
 										<div class="col-md-12 text-right myCalendarContentStyle paddingTop15px">
 											<p class="btn">Редактировать календарь</p>
 										</div>
 									</div>
-								<!-- </div> -->
 							</div>
 						</div>
 					</div>
@@ -651,13 +631,12 @@
 							<p class="h3 text-left"><img src="images/icons/package1.png" alt="number 1"> урок - <strong>10$</strong></p>
 							<p class="h3 text-left"><img src="images/icons/package5.png" alt="number 5"> уроков (пакет) - <strong>45$</strong></p>
 							<p class="h3 text-left"><img src="images/icons/package10.png" alt="number 10"> уроков (пакет) - <strong>80$</strong></p>
-							<button class="btn" style="font-size: 30px; color: #FFFFFF; background-color: #EA384E; margin-top: 15px;">купить урок</button>
+							<button class="btn remindersBtnBuy">купить урок</button>
 						</div>
 					</div>
 				</div>
 
 			</div>
-		</div>
 	</div>
 
 	<!-- myTeachers -->
@@ -681,7 +660,7 @@
 						</div>
 
 						<div class="col-md-6">
-							<div class="col-md-12 paddingLeft0 marginBottom15px"><span class="h1">Old Dude</span></div>
+							<div class="col-md-12 paddingLeft0 marginBottom15px"><span class="h1 nameOfTeacher">Old Dude</span></div>
 							<div class="col-md-12 paddingLeft0 marginBottom15px">
 								<img src="images/icons/skype.png" class=" MTteachersIconsWidth">
 								<span class="h4">sweet_professor333</span>
@@ -699,20 +678,20 @@
 					</div>
 				</div>
 				<div class="col-md-11 col-md-offset-1">
-					<p class="h3">Ближайший урок <strong>«сербский язык» - <span class="MTteachersBlueColor">в 13.00 в пятницу (24 июля)</span></strong></p>
+					<p class="h3">Ближайший урок <strong>«<span class="whichLanguage">сербский язык</span>» - <span class="MTteachersBlueColor">в 13.00 в пятницу (24 июля)</span></strong></p>
 				</div>
 				<div class="col-md-11 col-md-offset-1">
 					<div class="row">
 						<div class="col-md-2">
 							<div class="text-center MTteachersBlocksWidthHeightColor">
 								<span class="MTteachersFontSize18px">оплачено уроков:<span><br>
-								<span class="MTteachersPayedLessons"><strong>5</strong></span>
+								<strong><span class="MTteachersPayedLessons ifPayedLessons">5</span></strong>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="text-center MTteachersBlocksWidthHeightColor">
 								<span class="MTteachersFontSize18px">назначено уроков:<span><br>
-								<span class="MTteachersPayedLessons"><strong>3</strong></span>
+								<strong><span class="MTteachersPayedLessons">3</span></strong>
 							</div>
 						</div>
 						<div class="col-md-8">
@@ -735,7 +714,7 @@
 						</div>
 
 						<div class="col-md-6">
-							<div class="col-md-12 paddingLeft0 marginBottom15px"><span class="h1">Kyoko Fukada</span></div>
+							<div class="col-md-12 paddingLeft0 marginBottom15px"><span class="h1 nameOfTeacher">Kyoko Fukada</span></div>
 							<div class="col-md-12 paddingLeft0 marginBottom15px">
 								<img src="images/icons/skype.png" class=" MTteachersIconsWidth">
 								<span class="h4">sushi_worldwide</span>
@@ -753,20 +732,20 @@
 					</div>
 				</div>
 				<div class="col-md-11 col-md-offset-1">
-					<p class="h3">Последний оплаченный урок <strong>«японский язык» - <span class="MTteachersBlueColor">в 19.00 сегодня (28 июля)</span></strong></p>
+					<p class="h3">Последний оплаченный урок <strong>«<span class="whichLanguage">японский язык</span>» - <span class="MTteachersBlueColor">в 19.00 сегодня (28 июля)</span></strong></p>
 				</div>
 				<div class="col-md-11 col-md-offset-1">
 					<div class="row">
 						<div class="col-md-2">
 							<div class="text-center MTteachersBlocksWidthHeightColor">
 								<span class="MTteachersFontSize18px">оплачено уроков:<span><br>
-								<span class="MTteachersPayedLessons"><strong>0</strong></span>
+								<strong><span class="MTteachersPayedLessons ifPayedLessons">0</span></strong>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="text-center MTteachersBlocksWidthHeightColor">
 								<span class="MTteachersFontSize18px">назначено уроков:<span><br>
-								<span class="MTteachersPayedLessons"><strong>0</strong></span>
+								<strong><span class="MTteachersPayedLessons">0</span></strong>
 							</div>
 						</div>
 						<div class="col-md-8">
@@ -780,6 +759,28 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- reminders -->
+		<div id="reminder" class="modal fade" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content modalContent">
+					<div class="modal-header borderNone">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h3 class="modal-title text-center">
+							Поздравляем! У Вас за плечами уже 10 уроков, которые приблизили вас к цели - <strong><span id="whichLanguage"></span>.</strong> Для продолжения Вам необходимо приобрести следующий пакет уроков у преподавателя <strong><span id="whichTeacher" class="remindersTextColorBlue"></span>.</strong>
+						</h3>
+					</div>
+					<div class="modal-body borderNone text-center">
+						<div class="wrapForPriceInReminders">
+							<p class="h3 text-left"><img src="images/icons/package1.png" alt="number 1"> урок - <strong>10$</strong></p> 
+							<p class="h3 text-left"><img src="images/icons/package5.png" alt="number 5"> уроков (пакет) - <strong>45$</strong></p>
+							<p class="h3 text-left"><img src="images/icons/package10.png" alt="number 10"> уроков (пакет) - <strong>80$</strong></p>
+						</div>
+						<button class="btn remindersBtnBuy">купить урок</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
 	<script type="text/javascript" src="js/search.js"></script>
 </body>

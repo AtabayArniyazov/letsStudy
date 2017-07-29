@@ -402,14 +402,42 @@ function onClickOnField(EO) {
     // modalConfirmSelectedDate.innerHTML = " " + day + month + hour + "- " + (Number(temporary[0])+1) + ":00";
 }
 // ------------------------------------------------------------------------------------------------------------------------------------
+
 // work with icon searchTeacher
 function funcSearchTeachers() {
     additionalParams();
 }
 
 // ------------------------------------------------------------------------------------------------------------------------------------
+
 // work with icon myTeachers
 function funcMyTeachers() {
+    // work with modal REMINDERS
+    var arrIfPayedLessons = document.getElementsByClassName('ifPayedLessons');
+
+    for (var i = 0; i < arrIfPayedLessons.length; i++) {
+
+        if (arrIfPayedLessons[i].innerHTML == 0) {
+            var temp = gt(arrIfPayedLessons[i], 7),
+                nameOfTeacher = temp.getElementsByClassName("nameOfTeacher")[0].innerHTML,
+                whichLanguage = "выучить " + temp.getElementsByClassName("whichLanguage")[0].innerHTML;
+
+            document.getElementById("whichLanguage").innerHTML = whichLanguage;
+            document.getElementById("whichTeacher").innerHTML = nameOfTeacher;
+
+            $("#reminder").modal('show');
+
+            // функция к-ая доведет до определенного(n-ного(index)) родителя элемента
+            function gt(node, indx) {
+                var parent;
+                for (var i = 0; i <= indx; i++) {
+                    node = node.parentNode;
+                }
+                return(node);
+            }
+        }
+    }
+    // end work with modal REMINDERS------------------------------------------------------------------------------------------------------------------------------------
    
     (function showTime(){ //function for teacers local time
         var date = new Date(),
@@ -421,7 +449,6 @@ function funcMyTeachers() {
 
         window.setTimeout(showTime, 60000);
     })();
-
 
     document.getElementById("contentWhichWillChange").innerHTML = document.getElementById("myTeachersContent").innerHTML;
 }

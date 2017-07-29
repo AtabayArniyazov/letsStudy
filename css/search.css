@@ -277,3 +277,33 @@ header {
   /*end of style for teachers*/
 
 /*end of style for myTeachers*/
+/*----------------------------------------------------------------------------*/
+
+/*style for reminders modal*/
+.remindersTextColorBlue {
+  color: #3E9DD7;
+}
+
+.borderNone {
+  border: none;
+}
+
+.modalContent {
+  width: 750px;
+  background-image: url("../images/others/hand.png");
+  background-repeat: no-repeat;
+  background-position: left 140px;
+}
+
+.wrapForPriceInReminders {
+  width: 290px;
+  margin: 0 auto;
+}
+
+.remindersBtnBuy {
+  font-size: 30px;
+  color: #FFFFFF;
+  background-color: #EA384E;
+  margin-top: 15px;
+}
+/*----------------------------------------------------------------------------*/
